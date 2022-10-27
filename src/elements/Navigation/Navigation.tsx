@@ -3,26 +3,29 @@ import React, { FunctionComponent, Fragment } from 'react';
 import classNames from 'clsx';
 
 const Navigation: FunctionComponent<NavigationProps> = ({
-  toggleNav,
-  clickToggle
+  toggle,
+  setToggle
 }) => {
   return (
     <Fragment>
       <header
         className={classNames({
           header: true,
-          'body-pd': toggleNav
+          'body-pd': toggle
         })}
         id="header"
       >
-        <div className="header_toggle" onClick={e => clickToggle(e)}>
+        <div
+          className="header_toggle"
+          onClick={() => setToggle(!toggle)}
+        >
           Toggle
         </div>
       </header>
       <div
         className={classNames({
           'l-navbar ': true,
-          show: toggleNav
+          show: toggle
         })}
         id="nav-bar"
       >
@@ -75,8 +78,8 @@ const Navigation: FunctionComponent<NavigationProps> = ({
 };
 
 export interface NavigationProps {
-  toggleNav: boolean;
-  clickToggle: Function;
+  toggle: boolean;
+  setToggle: Function;
 }
 
 export default Navigation;

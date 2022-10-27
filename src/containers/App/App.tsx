@@ -8,13 +8,12 @@ import './App.scss';
 const App: FunctionComponent = () => {
   const [toggle, setToggle] = useState<boolean>(false);
 
-  const clickToggle = () => {
-    setToggle(!toggle);
-  };
-
   return (
-    <div className={`body ${toggle ? 'body-pd' : undefined}`} id="body-pd">
-        <Navigation toggleNav={toggle} clickToggle={clickToggle} />
+    <div
+      className={`body ${toggle ? 'body-pd' : undefined}`}
+      id="body-pd"
+    >
+      <Navigation toggle={toggle} setToggle={setToggle} />
       <div
         className={classNames({
           'height-100': true
